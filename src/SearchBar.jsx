@@ -15,6 +15,7 @@ const SearchBar = (props) => {
           className='searchBox'
           value={props.value1}
           onChange={props.onChange1}
+          inputStyle={{ fontSize: 19 }}
         />
         ever been in a movie with
         <label className='sr-only' htmlFor='actor2'>
@@ -27,6 +28,7 @@ const SearchBar = (props) => {
           className='searchBox'
           value={props.value2}
           onChange={props.onChange2}
+          inputStyle={{ fontSize: 19 }}
         />
         ?
       </span>
