@@ -10,19 +10,25 @@ function App() {
   const [moviesArray, setMoviesArray] = useState([]);
   const [search1, setSearch1] = useState('');
   const [search2, setSearch2] = useState('');
+  // const [userSearched, setUserSearched] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
     console.log(search1, search2);
+    // setUserSearched(true);
 
     getCommonMovies(search1, search2).then((response) => {
       setMoviesArray(response);
       console.log(moviesArray);
     });
-
   };
 
+  // useEffect(() => {
+  //   getCommonMovies(search1, search2).then((response) => {
+  //     setMoviesArray(response);
+  //   });
+
+  // },[userSearched, search1, search2]);
 
   return (
     <>
@@ -38,7 +44,7 @@ function App() {
           setSearch2(event.target.value);
         }}
         placeholder1='Keanu'
-        placeholder2='Halle Berry'
+        placeholder2='Al Pacino'
       />
       <MoviesGallery className='moviesGallery' moviesArray={moviesArray} />
     </>
