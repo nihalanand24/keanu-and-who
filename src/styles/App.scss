@@ -1,4 +1,5 @@
 @import './partials/setup';
+@import './partials/moviesGallery';
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
@@ -54,19 +55,19 @@ header {
   button {
     margin: 20px auto;
     display: block;
-    border: 2px solid black;
+    border: 1px solid #111;
     background-color: #333;
     color: white;
     font-family: Ubuntu;
     font-size: 1.2rem;
     padding: 5px 20px;
     cursor: pointer;
-    box-shadow: 0 0 black;
+    box-shadow: 0 0 #111;
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     
     &:hover,
     &:focus {
-      box-shadow: -4px 4px black;
+      box-shadow: -4px 4px #111;
       transform: translate(4px, -4px);
     }
   }

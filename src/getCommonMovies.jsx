@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = 'https://api.themoviedb.org/3';
 const apiKey = '0f71218e40b140c550833011fa9c4afb';
 
-const getCommonMovies = (actor1, actor2) => {
+const getCommonMovies = async (actor1, actor2) => {
   const getActorIDs = async (actor1Name, actor2Name) => {
     const getAxiosConfig = (actor) => {
       return {
@@ -26,9 +26,9 @@ const getCommonMovies = (actor1, actor2) => {
       .then((person) => person.id)
       .catch(() =>
         alert(
-          'Cannot find an actor named ' +
+          'No actor named ' +
             actor1Name +
-            '. Please check the spelling and try again.'
+            ' was found. Please check the spelling and try again.'
         )
       );
 
@@ -95,12 +95,9 @@ const getCommonMovies = (actor1, actor2) => {
         getMovieObj(movieID);
       }
     });
-    
-    console.log(movieArray);
-    return movieArray;
   };
 
-  const movieArray = [];
+  const commonMovieArray = [];
 
   const getMovieObj = (movieID) => {
     axios({
@@ -113,18 +110,19 @@ const getCommonMovies = (actor1, actor2) => {
     }).then((res) => {
       const movie = res.data;
       // console.log(movie);
-      movieArray.push({
-        year: movie.release_date.slice(0,4),
+      commonMovieArray.push({
+        year: movie.release_date.slice(0, 4),
         title: movie.title,
         poster: movie.poster_path,
         backgroundImage: movie.backdrop_path,
         imdb: movie.imdb_id,
-        overview: movie.overview
+        overview: movie.overview,
       });
     });
   };
 
   getActorIDs(actor1, actor2);
+  return commonMovieArray;
 };
 
 export default getCommonMovies;

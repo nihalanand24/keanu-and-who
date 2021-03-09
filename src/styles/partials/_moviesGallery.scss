@@ -1,0 +1,33 @@
+.moviesGallery {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+
+
+    .movieCard {
+        margin: 10px;
+        padding: 10px 20px;
+        text-align: center;
+        border: 2px solid #333;
+        box-shadow: 0 0 #333;
+        width: 250px;
+        transition: all 0.2s ease-out;
+        
+        &:hover {
+            box-shadow: -5px 5px #333;
+            transform: translate(5px, -5px);
+        }
+        
+        h3, p {
+            margin: 5px;
+        }
+
+        img {
+            margin: 10px 0;
+        }
+    }
+}
