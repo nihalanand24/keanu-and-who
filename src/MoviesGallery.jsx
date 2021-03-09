@@ -6,7 +6,7 @@ const MoviesGallery = ({ moviesArray }) => {
             <div key={index} className='movieCard'>
                 <h3>{movie.title}</h3>
                 <p>({movie.year})</p>
-                <img src={`http://image.tmdb.org/t/p/w185/${movie.poster}`} alt={`Movie poster for ${movie.title}`}/>
+                <img src={`http://image.tmdb.org/t/p/w500${movie.poster}`} alt={`Movie poster for ${movie.title}`}/>
             </div>
         )
       })}
