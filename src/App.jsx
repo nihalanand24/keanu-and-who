@@ -2,7 +2,7 @@ import './styles/App.scss';
 import Header from './Header';
 import SearchBar from './SearchBar';
 import { useState } from 'react';
-import findMatches from './findMatches';
+import getCommonMovies from './getCommonMovies';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    findMatches(actor1, actor2);
+    getCommonMovies(actor1, actor2)
 
   };
   
