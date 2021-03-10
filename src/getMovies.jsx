@@ -1,7 +1,9 @@
 const baseUrl = 'https://api.themoviedb.org/3';
 const apiKey = '0f71218e40b140c550833011fa9c4afb';
 
-export default function getMovies(actor1Name, actor2Name) {
+export default function getMovies(actor1Name, actor2Name, setMoviesArray) {
+
+  
 
   const getActorIDs = async (actor1, actor2) => {
     const url = new URL(`${baseUrl}/search/person`);
@@ -37,13 +39,16 @@ export default function getMovies(actor1Name, actor2Name) {
 
     const matchedIDs = actor1Movies.filter(movieID => actor2Movies.includes(movieID));
 
-    // const moviesArray = await matchedIDs.map(id => {
-    //   const movieObject = getMovieObj(id);
-    //   return movieObject;
-    // });
+    const moviesArray = await matchedIDs.map(id => {
+      const movieObject = getMovieObj(id);
+      return movieObject;
+    });
 
-    console.log(matchedIDs);
-    // Promise.all(moviesArray).then(res => console.log(res));
+    // console.log(moviesArray);
+    Promise.all(moviesArray).then(res => setMoviesArray(res));
+
+    // console.log(matchedIDs);
+
   };
 
   const getMovieObj = async (movieID) => {
@@ -53,7 +58,8 @@ export default function getMovies(actor1Name, actor2Name) {
     });
 
     const res = await fetch(url);
-    const movie = await res.json();
+    const jsonRes = await res.json();
+    const movie = await jsonRes;
 
     return {
       title: movie.title,
@@ -86,6 +92,7 @@ export default function getMovies(actor1Name, actor2Name) {
   };
 
   getActorIDs(actor1Name, actor2Name);
+
   
 }
 

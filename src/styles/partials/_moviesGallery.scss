@@ -16,6 +16,7 @@
         box-shadow: 0 0 #333;
         width: 250px;
         transition: all 0.2s ease-out;
+        cursor: pointer;
         
         &:hover {
             box-shadow: -5px 5px #333;
@@ -37,4 +38,25 @@
             border: 1px solid #333;
         }
     }
+    
 }
+.noPoster {
+    width: 200px;
+    height: 299px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: whitesmoke;
+    margin: 10px auto;
+    text-align: center;
+    
+    p {
+        // width: 60%;
+        padding: 40% 2%;
+        margin: 0 auto;
+        // padding: 100px 0;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.8rem;
+        // width: 70%;
+    }
+}
+
