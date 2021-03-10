@@ -1,62 +1,92 @@
 .moviesGallery {
-    width: 80%;
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-around;
+
+  .movieCard {
+    margin: 10px;
+    padding: 10px 20px;
     text-align: center;
-    justify-content: space-around;
+    border: 2px solid #333;
+    width: 250px;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+    animation: fadein 0.5s;
+    box-shadow: 0 0 #333;
 
-
-    .movieCard {
-        margin: 10px;
-        padding: 10px 20px;
-        text-align: center;
-        border: 2px solid #333;
-        box-shadow: 0 0 #333;
-        width: 250px;
-        transition: all 0.2s ease-out;
-        cursor: pointer;
-        
-        &:hover {
-            box-shadow: -5px 5px #333;
-            transform: translate(5px, -5px);
-        }
-
-        h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-        }
-        
-        h3, p {
-            margin: 5px;
-        }
-
-        img {
-            width: 200px;
-            margin: 10px 0;
-            border: 1px solid #333;
-        }
+    &:hover {
+      box-shadow: -5px 5px #333;
+      transform: translate(5px, -5px);
     }
-    
-}
-.noPoster {
-    width: 200px;
-    height: 299px;
-    border: 1px solid #333;
-    background-color: #333;
-    color: whitesmoke;
-    margin: 10px auto;
-    text-align: center;
-    
+
+    &:active {
+      box-shadow: 0 0 #333;
+      transform: translate(-5px, 5px);
+    }
+
+    h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+    }
+
+    h3,
     p {
-        // width: 60%;
-        padding: 40% 2%;
-        margin: 0 auto;
-        // padding: 100px 0;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.8rem;
-        // width: 70%;
+      margin: 5px;
     }
+
+    img {
+      width: 200px;
+      margin: 10px 0;
+      border: 1px solid #333;
+    }
+  }
 }
 
+.errorCard {
+  margin: 30px;
+  padding: 10px 20px;
+  text-align: center;
+  border: 2px solid #333;
+  box-shadow: -5px 5px #333;
+  width: 250px;
+
+  h3 {
+    // font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 1;
+    box-shadow: 0 0 #333;
+  }
+  to {
+    opacity: 1;
+    box-shadow: -5px 5px #333;
+  }
+}
+
+.noPoster {
+  width: 200px;
+  height: 299px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: whitesmoke;
+  margin: 10px auto;
+  text-align: center;
+
+  p {
+    // width: 60%;
+    padding: 40% 2%;
+    margin: 0 auto;
+    // padding: 100px 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    // width: 70%;
+  }
+}

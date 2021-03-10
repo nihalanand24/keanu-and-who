@@ -7,21 +7,14 @@ import getMovies from './getMovies';
 import MoviesGallery from './MoviesGallery';
 
 function App() {
-  const [moviesArray, setMoviesArray] = useState([]);
+  const [dataFromApi, setDataFromApi] = useState([]);
   const [search1, setSearch1] = useState('');
   const [search2, setSearch2] = useState('');
 
   const handleSubmit = async (event) => {
-
     event.preventDefault();
-    getMovies(search1, search2, setMoviesArray);
-
-    // console.log(ids);
-    // const temp = getCommonMovies(search1, search2);
-    // setMoviesArray(temp);
-
+    getMovies(search1, search2, setDataFromApi);
   };
-
 
   return (
     <>
@@ -39,7 +32,7 @@ function App() {
         placeholder1='Keanu Reeves'
         placeholder2='Steve Martin'
       />
-      <MoviesGallery moviesArray={moviesArray} />
+        <MoviesGallery moviesArray={dataFromApi} />
     </>
   );
 }
