@@ -4,7 +4,7 @@ const baseUrl = 'https://api.themoviedb.org/3';
 const apiKey = '0f71218e40b140c550833011fa9c4afb';
 
 const getCommonMovies = async (actor1, actor2) => {
-  
+
   const getActorIDs = async (actor1Name, actor2Name) => {
     const getAxiosConfig = (actor) => {
       return {
@@ -118,6 +118,7 @@ const getCommonMovies = async (actor1, actor2) => {
         backgroundImage: movie.backdrop_path,
         imdb: movie.imdb_id,
         overview: movie.overview,
+        id: movie.id
       });
     });
   };

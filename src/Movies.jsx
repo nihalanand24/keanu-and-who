@@ -1,133 +1,91 @@
-import axios from 'axios';
-
 const baseUrl = 'https://api.themoviedb.org/3';
 const apiKey = '0f71218e40b140c550833011fa9c4afb';
 
-const Movies = ({ actor1, actor2 }) => {
-  const getActorIDs = async (actor1Name, actor2Name) => {
-    const getAxiosConfig = (actor) => {
-      return {
-        method: 'GET',
-        url: `${baseUrl}/search/person`,
-        dataResponse: 'JSON',
-        params: {
-          api_key: apiKey,
-          query: actor,
-        },
-      };
-    };
+export default function getMovies(actor1Name, actor2Name) {
 
-    const actor1Config = getAxiosConfig(actor1Name);
+  const getActorIDs = async (actor1, actor2) => {
+    const url = new URL(`${baseUrl}/search/person`);
+    url.search = new URLSearchParams({
+      api_key: apiKey,
+      query: actor1,
+    });
 
-    const actor2Config = getAxiosConfig(actor2Name);
+    let res = await fetch(url);
+    let jsonRes = await res.json();
+    const actor1ID = await jsonRes.results[0].id;
 
-    const actor1ID = await axios(actor1Config)
-      .then((res) => res.data.results[0])
-      .then((person) => person.id)
-      .catch(() =>
-        alert(
-          'No actor named ' +
-            actor1Name +
-            ' was found. Please check the spelling and try again.'
-        )
-      );
+    url.search = new URLSearchParams({
+      api_key: apiKey,
+      query: actor2,
+    });
 
-    const actor2ID = await axios(actor2Config)
-      .then((res) => res.data.results[0])
-      .then((person) => person.id)
-      .catch(() =>
-        alert(
-          'Cannot find an actor named ' +
-            actor2Name +
-            '. Please check the spelling and try again.'
-        )
-      );
+    res = await fetch(url);
+    jsonRes = await res.json();
+    const actor2ID = await jsonRes.results[0].id;
 
-    getCredits(actor1ID, actor2ID);
+    getActorCredits(actor1ID, actor2ID);
   };
 
-  const getCredits = async (actor1ID, actor2ID) => {
-    const getAxiosConfig = (actorID) => {
-      return {
-        method: 'GET',
-        url: `${baseUrl}/person/${actorID}/movie_credits`,
-        dataResponse: 'JSON',
-        params: {
-          api_key: apiKey,
-        },
-      };
-    };
-
-    const actor1Config = getAxiosConfig(actor1ID);
-
-    const actor2Config = getAxiosConfig(actor2ID);
-
-    const actor1Credits = await axios(actor1Config).then((res) => {
-      const credits = res.data.cast;
-      const fictionCredits = [];
-
-      for (let movie of credits) {
-        if (!movie.genre_ids.includes(99)) {
-          fictionCredits.push(movie.id);
-        }
-      }
-      return fictionCredits;
-    });
-
-    const actor2Credits = await axios(actor2Config).then((res) => {
-      const credits = res.data.cast;
-      const fictionCredits = [];
-
-      for (let movie of credits) {
-        if (!movie.genre_ids.includes(99)) {
-          fictionCredits.push(movie.id);
-        }
-      }
-      return fictionCredits;
-    });
+  const getActorCredits = async (id1, id2) => {
+    const actor1Credits = await getCredits(id1);
+    const actor2Credits = await getCredits(id2);
 
     findMatch(actor1Credits, actor2Credits);
   };
 
-  const findMatch = async (actor1Credits, actor2Credits) => {
-    actor1Credits.forEach((movieID) => {
-      if (actor2Credits.includes(movieID)) {
-        getMovieObj(movieID);
+  const findMatch = async (actor1Movies, actor2Movies) => {
+
+    const matchedIDs = actor1Movies.filter(movieID => actor2Movies.includes(movieID));
+
+    // const moviesArray = await matchedIDs.map(id => {
+    //   const movieObject = getMovieObj(id);
+    //   return movieObject;
+    // });
+
+    console.log(matchedIDs);
+    // Promise.all(moviesArray).then(res => console.log(res));
+  };
+
+  const getMovieObj = async (movieID) => {
+    const url = new URL(`${baseUrl}/movie/${movieID}`);
+    url.search = new URLSearchParams({
+      api_key: apiKey,
+    });
+
+    const res = await fetch(url);
+    const movie = await res.json();
+
+    return {
+      title: movie.title,
+      year: movie.release_date.slice(0, 4),
+      poster: movie.poster_path,
+      backdrop: movie.backdrop_path,
+      imdb: movie.imdb_id,
+      overview: movie.overview,
+      id: movie.id
+    };
+  };
+
+  const getCredits = async (id) => {
+    const url = new URL(`${baseUrl}/person/${id}/movie_credits`);
+    url.search = new URLSearchParams({
+      api_key: apiKey,
+    });
+
+    const res = await fetch(url);
+    const jsonRes = await res.json();
+    const credits = await jsonRes.cast;
+
+    const movieCredits = [];
+    for (let movie of credits) {
+      if (!movie.genre_ids.includes(99)) {
+        movieCredits.push(movie.id);
       }
-    });
+    }
+    return movieCredits;
   };
 
-  const commonMovieArray = [];
+  getActorIDs(actor1Name, actor2Name);
+  
+}
 
-  const getMovieObj = (movieID) => {
-    axios({
-      method: 'GET',
-      url: `${baseUrl}/movie/${movieID}`,
-      dataResponse: 'JSON',
-      params: {
-        api_key: apiKey,
-      },
-    }).then((res) => {
-      const movie = res.data;
-      // console.log(movie);
-      commonMovieArray.push({
-        year: movie.release_date.slice(0, 4),
-        title: movie.title,
-        poster: movie.poster_path,
-        backgroundImage: movie.backdrop_path,
-        imdb: movie.imdb_id,
-        overview: movie.overview,
-      });
-    });
-  };
-
-  getActorIDs(actor1, actor2);
-  return (
-    <>
-      <p>{actor1}</p>
-      <p>{actor2}</p>
-    </>
-  );
-};
-
-export default Movies;
