@@ -11,11 +11,20 @@ const MoviesGallery = ({ moviesArray, actor1, actor2 }) => {
     setOpen(true);
   }, [moviesArray]);
 
-  return moviesArray[0] === 'ERROR' ? (
+  return !moviesArray.length ? (
+    <div className='moviesGallery'>
+      <p>Enter the names of any two actors to get started</p>
+    </div>
+  ) : moviesArray[0] === 'ERROR' ? (
     <Modal open={open} onClose={() => setOpen(false)}>
-      <div className='errorCard' aria-labelledby='errorModalTitle' aria-describedby='errorModalDescription'>
+      <div
+        className='errorCard'
+        aria-labelledby='errorModalTitle'
+        aria-describedby='errorModalDescription'>
         <h3 id='errorModalTitle'>We couldn't find {moviesArray[1]}</h3>
-        <p id='errorModalDescription'>Please check the spelling and try again.</p>
+        <p id='errorModalDescription'>
+          Please check the spelling and try again.
+        </p>
       </div>
     </Modal>
   ) : moviesArray[0] === 'NO RESULT' ? (
