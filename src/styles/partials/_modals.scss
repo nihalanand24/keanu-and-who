@@ -1,5 +1,5 @@
 .customOverlay {
-    background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .movieModal {
@@ -10,41 +10,51 @@
   color: whitesmoke;
 
   svg {
-	fill: white;
-	background-color: rgba(0, 0, 0, 0.692);
-}
-
-
-  .modalContent {
-      text-align: center;
-
-      h2 {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: 2.2rem;
-          margin: 20px 20px 5px;
-      }
-      img {
-          width: 100%;
-      }
-      p {
-          margin: 10px 10px 20px;
-          line-height: 1.5;
-      }
-
-      a {
-          text-decoration: none;
-          margin: 20px 0;
-          padding: 5px;
-          color: rgb(171, 221, 230);
-          font-weight: 700;
-
-          &:hover,
-          &:focus {
-              text-decoration: underline;
-              outline: none;
-          }
-      }
+    fill: white;
+    background-color: rgba(0, 0, 0, 0.692);
   }
 
+  .modalContent {
+    text-align: center;
 
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      margin: 20px 20px 5px;
+    }
+    img {
+      width: 100%;
+    }
+    p {
+      margin: 10px 10px 20px;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 5px;
+      color: rgb(171, 221, 230);
+      font-weight: 700;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        outline: none;
+      }
+    }
+  }
 }
+
+.errorCard {
+    margin: 30px;
+    padding: 10px 20px;
+    text-align: center;
+    border: 2px solid #333;
+    box-shadow: -5px 5px #333;
+    animation: fadein 1s;
+  
+    h3 {
+      font-size: 1.3rem;
+    }
+  
+  }

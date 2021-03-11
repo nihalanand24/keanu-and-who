@@ -9,6 +9,7 @@
 
   .movieCard {
     align-self: stretch;
+    justify-self: center;
     margin: 5px 0;
     padding: 10px 20px;
     text-align: center;
@@ -48,18 +49,7 @@
   }
 }
 
-.errorCard {
-  margin: 30px;
-  padding: 10px 20px;
-  text-align: center;
-  border: 2px solid #333;
-  box-shadow: -5px 5px #333;
 
-  h3 {
-    font-size: 1.3rem;
-  }
-
-}
 
 @keyframes fadein {
   from {
@@ -80,12 +70,9 @@
   text-align: center;
 
   p {
-    // width: 60%;
     padding: 40% 2%;
     margin: 0 auto;
-    // padding: 100px 0;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.8rem;
-    // width: 70%;
   }
 }

@@ -19,10 +19,7 @@ export default function getMovies(actor1Name, actor2Name, setDataFromApi) {
       jsonRes = await res.json();
       actor1ID = await jsonRes.results[0].id;
     } catch (e) {
-      setDataFromApi({
-        error: true,
-        missingActor: `${actor1}`
-      });
+      setDataFromApi(['ERROR', `${actor1}`]);
       return;
     }
 
@@ -36,10 +33,7 @@ export default function getMovies(actor1Name, actor2Name, setDataFromApi) {
       jsonRes = await res.json();
       actor2ID = await jsonRes.results[0].id;
     } catch (e) {
-      setDataFromApi({
-        error: true,
-        missingActor: `${actor2}`
-      });
+      setDataFromApi(['ERROR', `${actor2}`]);
       return;
     }
 
@@ -63,10 +57,9 @@ export default function getMovies(actor1Name, actor2Name, setDataFromApi) {
       return movieObject;
     });
 
-    // console.log(moviesArray);
-    Promise.all(moviesArray).then((res) => setDataFromApi(res));
-
-    // console.log(matchedIDs);
+    Promise.all(moviesArray).then((res) => {
+      !res.length ? setDataFromApi(['NO RESULT']) : setDataFromApi(res);
+    });
   };
 
   const getMovieObj = async (movieID) => {
