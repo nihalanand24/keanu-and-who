@@ -41,22 +41,11 @@
     }
 
     img {
-        width: 90%;
+      width: 90%;
       max-width: 240px;
       margin: 10px 0;
       border: 1px solid #eee;
     }
-  }
-}
-
-
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 
@@ -74,5 +63,14 @@
     margin: 0 auto;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.8rem;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

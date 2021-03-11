@@ -1,85 +1,8 @@
 @import './partials/setup';
+@import './partials/generalStyles';
 @import './partials/moviesGallery';
+@import './partials/searchBar';
 @import './partials/modals';
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&Ubuntu:wght@400;700&display=swap');
-
-body {
-  font-family: 'Ubuntu';
-  font-weight: 400;
-  color: #333;
-}
-
-.wrapper {
-  width: 90%;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-header {
-  text-align: center;
-  
-  h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400;
-    font-size: 2.4rem;
-    letter-spacing: 2px;
-    display: inline-block;
-    border: 2px solid #333;
-    padding: 15px;
-    box-shadow: -5px 5px #333;
-  }
-  
-  
-}
-
-
-.searchBar {
-  font-size: 1.3rem;
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-  
-  
-  .searchBox {
-    text-align: center;
-    display: inline-block;
-    margin: 0 5px 0 10px;
-    line-height: 2.5;
-    
-    input {
-      // width: 50%;
-      font-family: Ubuntu;
-      font-weight: 400;
-      // font-size: 19px;
-      text-align: center;
-      border: 1px solid #333;
-      // border-bottom: 4px solid #333;
-      box-shadow: -4px 4px #333;
-      padding: 5px 5px;
-    }
-  }
-  
-  button {
-    margin: 20px auto;
-    display: block;
-    border: 1px solid #111;
-    background-color: #333;
-    color: white;
-    font-family: 'Bebas Neue';
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-    padding: 5px 20px;
-    cursor: pointer;
-    box-shadow: 0 0 #111;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    
-    &:hover,
-    &:focus {
-      box-shadow: -4px 4px #111;
-      transform: translate(4px, -4px);
-    }
-  }
-}
-
 
