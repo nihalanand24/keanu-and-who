@@ -16,7 +16,7 @@ const MovieCard = (props) => {
           <p>({props.releaseYear})</p>
           {props.poster ? (
             <img
-              src={`http://image.tmdb.org/t/p/w500${props.poster}`}
+              src={`https://image.tmdb.org/t/p/w500${props.poster}`}
               alt={`Movie poster for ${props.movieTitle}`}
             />
           ) : (
