@@ -1,28 +1,16 @@
+html {
+  min-height: 100vh;
+}
 body {
-    font-family: 'Ubuntu';
-    font-weight: 400;
-    color: #333;
-  }
-  
-  .wrapper {
-    width: 90%;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  
-  header {
-    text-align: center;
-  
-    h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-weight: 400;
-      font-size: 2.4rem;
-      letter-spacing: 2px;
-      display: inline-block;
-      border: 2px solid #333;
-      padding: 15px;
-      box-shadow: -5px 5px #333;
-    }
-  }
-  
-  
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  color: #333;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 2.4rem);
+}

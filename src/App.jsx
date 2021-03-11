@@ -4,21 +4,17 @@ import { useState } from 'react';
 import getMovies from './getMovies';
 import MoviesGallery from './MoviesGallery';
 import './styles/App.scss';
+import Footer from './Footer';
 
 function App() {
   const [dataFromApi, setDataFromApi] = useState([]);
   const [search1, setSearch1] = useState('');
   const [search2, setSearch2] = useState('');
-  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     getMovies(search1, search2, setDataFromApi);
   };
-
-  // const DisplayError = () => {
-  //   return <p>ERROR</p>
-  // }
 
   return (
     <>
@@ -37,8 +33,13 @@ function App() {
           placeholder1='Keanu Reeves'
           placeholder2='Steve Martin'
         />
-          <MoviesGallery actor1={search1} actor2={search2} moviesArray={dataFromApi} />
+        <MoviesGallery
+          actor1={search1}
+          actor2={search2}
+          moviesArray={dataFromApi}
+        />
       </div>
+      <Footer />
     </>
   );
 }
