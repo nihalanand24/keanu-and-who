@@ -2,21 +2,18 @@
 import { useEffect, useState } from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-
 import MovieCard from './MovieCard';
+
 
 const MoviesGallery = ({ moviesArray }) => {
   const [open, setOpen] = useState(false);
 
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
-
   useEffect(() => {
-    onOpenModal();
+    setOpen(true);
   }, [moviesArray]);
 
   return moviesArray.error ? (
-    <Modal open={open} onClose={onCloseModal}>
+    <Modal open={open} onClose={() => setOpen(false)}>
       <div className='errorCard'>
         <h3>{moviesArray.missingActor} is not found.</h3>
         <p>Please check the spelling and try again.</p>

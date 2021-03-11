@@ -1,18 +1,21 @@
 .moviesGallery {
-  width: 80%;
-  max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 0 auto;
   text-align: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-rows: repeat(auto-fit, 1fr);
+  gap: 24px;
 
   .movieCard {
-    margin: 10px;
+    //   max-width: 400px;
+      align-self: stretch;
+    justify-self: center;
+    margin: 5px 0;
     padding: 10px 20px;
     text-align: center;
     border: 2px solid #333;
-    width: 250px;
     transition: all 0.2s ease-out;
     cursor: pointer;
     animation: fadein 0.5s;
@@ -25,12 +28,13 @@
 
     &:active {
       box-shadow: 0 0 #333;
-      transform: translate(-5px, 5px);
+      transform: translate(0);
     }
 
     h3 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.5rem;
+      max-width: 200px;
     }
 
     h3,
@@ -39,9 +43,9 @@
     }
 
     img {
-      width: 200px;
+      max-width: 200px;
       margin: 10px 0;
-      border: 1px solid #333;
+      border: 1px solid #eee;
     }
   }
 }
@@ -62,12 +66,10 @@
 
 @keyframes fadein {
   from {
-    opacity: 1;
-    box-shadow: 0 0 #333;
+    opacity: 0;
   }
   to {
     opacity: 1;
-    box-shadow: -5px 5px #333;
   }
 }
 

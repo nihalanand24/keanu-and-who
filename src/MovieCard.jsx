@@ -8,40 +8,53 @@ import NoPoster from './NoPoster';
 const MovieCard = (props) => {
   const [open, setOpen] = useState(false);
 
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
-
   return (
     <>
-      <div className='movieCard' onClick={onOpenModal}>
-        <h3>{props.movieTitle}</h3>
-        <p>({props.releaseYear})</p>
-        {props.poster ? (
-          <img
-            src={`http://image.tmdb.org/t/p/w500${props.poster}`}
-            alt={`Movie poster for ${props.movieTitle}`}
-          />
-        ) : (
-          <NoPoster />
-        )}
-      </div>
-      <Modal key={props.imdb} open={open} onClose={onCloseModal} center>
-        <h1>{props.movieTitle}</h1>
+      {props.releaseYear && (
+        <div className='movieCard' onClick={() => setOpen(true)}>
+          <h3>{props.movieTitle}</h3>
+          <p>({props.releaseYear})</p>
+          {props.poster ? (
+            <img
+              src={`http://image.tmdb.org/t/p/w500${props.poster}`}
+              alt={`Movie poster for ${props.movieTitle}`}
+            />
+          ) : (
+            <NoPoster />
+          )}
+        </div>
+      )}
+      <Modal
+        key={props.imdb}
+        open={open}
+        onClose={() => setOpen(false)}
+        center
+        classNames={{
+          overlay: 'customOverlay',
+          modal: 'movieModal',
+        }}
+        aria-labelledby='modalTitle'
+        aria-describedby='modalDescription'>
+        <div className='modalContent'>
+          {props.backdrop && (
+            <img
+              src={`https://image.tmdb.org/t/p/original${props.backdrop}`}
+              alt={props.movieTitle}
+            />
+          )}
+          <h2 id='modalTitle'>{props.movieTitle}</h2>
+          {props.description ? (
+            <p id='modalDescription'>{props.description}</p>
+          ) : (
+            <p>No description available for this film.</p>
+          )}
 
-        {props.backdrop && (
-          <img
-            src={`https://image.tmdb.org/t/p/w500${props.backdrop}`}
-            alt={props.movieTitle}
-          />
-        )}
-        {props.description ? (
-          <p>{props.description}</p>
-        ) : (
-          <p>No description available for this film.</p>
-        )}
-        <a href={`https://imdb.com/title/${props.imdb}`} target='_blank'>
-          Visit IMDb Page for <em>{props.movieTitle}</em>
-        </a>
+          {props.imdb && (
+            <a href={`https://imdb.com/title/${props.imdb}`} target='_blank'>
+              Visit IMDb Page for <em>{props.movieTitle}</em>
+            </a>
+          )}
+        </div>
       </Modal>
     </>
   );

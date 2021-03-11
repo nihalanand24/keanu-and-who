@@ -1,6 +1,6 @@
 const NoPoster = () => {
     return (
-        <div class='noPoster'>
+        <div className='noPoster'>
             <p>Poster image not available</p>            
         </div>
     )

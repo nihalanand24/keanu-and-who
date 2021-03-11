@@ -1,10 +1,9 @@
-import './styles/App.scss';
 import Header from './Header';
 import SearchBar from './SearchBar';
 import { useState } from 'react';
 import getMovies from './getMovies';
-// import getCommonMovies from './getCommonMovies';
 import MoviesGallery from './MoviesGallery';
+import './styles/App.scss';
 
 function App() {
   const [dataFromApi, setDataFromApi] = useState([]);
@@ -18,21 +17,23 @@ function App() {
 
   return (
     <>
-      <Header />
-      <SearchBar
-        value1={search1}
-        value2={search2}
-        onSubmit={handleSubmit}
-        onChange1={(event) => {
-          setSearch1(event.target.value);
-        }}
-        onChange2={(event) => {
-          setSearch2(event.target.value);
-        }}
-        placeholder1='Keanu Reeves'
-        placeholder2='Steve Martin'
-      />
+      <div className='wrapper'>
+        <Header />
+        <SearchBar
+          value1={search1}
+          value2={search2}
+          onSubmit={handleSubmit}
+          onChange1={(event) => {
+            setSearch1(event.target.value);
+          }}
+          onChange2={(event) => {
+            setSearch2(event.target.value);
+          }}
+          placeholder1='Keanu Reeves'
+          placeholder2='Steve Martin'
+        />
         <MoviesGallery moviesArray={dataFromApi} />
+      </div>
     </>
   );
 }

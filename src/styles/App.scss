@@ -1,11 +1,18 @@
 @import './partials/setup';
 @import './partials/moviesGallery';
+@import './partials/modals';
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&Ubuntu:wght@400;700&display=swap');
 
 body {
   font-family: 'Ubuntu';
   font-weight: 400;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 header {
@@ -22,7 +29,7 @@ header {
     letter-spacing: 2px;
     display: inline-block;
     border: 2px solid #333;
-    padding: 2%;
+    padding: 15px;
     box-shadow: -5px 5px #333;
   }
   
@@ -33,7 +40,7 @@ header {
 .searchBar {
   font-size: 1.3rem;
   text-align: center;
-  // width: 30%;
+  width: 80%;
   margin: 0 auto;
   
   
@@ -62,8 +69,9 @@ header {
     border: 1px solid #111;
     background-color: #333;
     color: white;
-    font-family: Ubuntu;
-    font-size: 1.2rem;
+    font-family: 'Bebas Neue';
+    font-size: 1.4rem;
+    letter-spacing: 2px;
     padding: 5px 20px;
     cursor: pointer;
     box-shadow: 0 0 #111;
