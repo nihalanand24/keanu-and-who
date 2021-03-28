@@ -7,9 +7,8 @@
   .searchBoxContainer {
     display: inline-block;
     position: relative;
-
   }
-  
+
   .autocomplete {
     font-size: 19px;
     position: absolute;
@@ -24,15 +23,13 @@
     right: 5px;
     padding: 0;
 
-    
-
     li {
       width: 100%;
 
       .hiddenButton {
         display: none;
       }
-      
+
       .suggestion {
         // text-align: left;
         background-color: transparent;
@@ -49,23 +46,22 @@
 
         &:hover,
         &:focus {
-        transform: none;
-        background-color: #ddd;
-        outline: none;
+          transform: none;
+          background-color: #ddd;
+          outline: none;
+        }
       }
-
-      }
-
-      
-
     }
-
   }
 
   .searchBox {
     display: inline-block;
     margin: 0 5px 0 10px;
     line-height: 2.5;
+
+    ::placeholder {
+      opacity: 0.25;
+    }
 
     input {
       text-align: center;
@@ -88,7 +84,7 @@
     background-color: #333;
     color: white;
 
-    font-family: 'Bebas Neue';
+    font-family: "Bebas Neue";
     font-size: 1.4rem;
     letter-spacing: 2px;
 

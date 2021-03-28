@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
-const useRovingFocus = (size) => {
+const useRovingFocus = (size, id) => {
     
   const [currentFocus, setCurrentFocus] = useState(0);
 
-  const search = document.getElementById('searchMovie');
+  const search = document.getElementById(id);
 
   const handleKeyDown = useCallback(e => {
       if (e.keyCode === 40) {

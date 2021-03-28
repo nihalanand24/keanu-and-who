@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-const Suggestion = ({ actor, focus, index, setFocus, setName }) => {
+const Suggestion = ({ actor, focus, index, setFocus, setName, propID }) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -13,13 +13,17 @@ const Suggestion = ({ actor, focus, index, setFocus, setName }) => {
     setFocus(index);
   }, [index, setFocus]);
 
+  const handleClick = (name) => {
+    document.getElementById(propID).style.display = "none";
+    setName(name);
+  };
   return (
     <li>
       <button
       className='suggestion'
         tabIndex={focus ? 0 : -1}
         ref={ref}
-        onClick={() => setName(actor)}
+        onClick={() => handleClick(actor)}
         onKeyPress={handleSelect}>
         {actor}
       </button>

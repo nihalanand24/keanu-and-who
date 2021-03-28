@@ -19,6 +19,7 @@ const SearchBar = props => {
             value={props.value1}
             onChange={props.onChange1}
             inputStyle={{ fontSize: 19 }}
+            autoFocus
           />
           {props.autocomplete1}
         </span>
