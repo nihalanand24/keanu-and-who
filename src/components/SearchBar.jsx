@@ -3,7 +3,7 @@ import AutosizeInput from 'react-input-autosize';
 
 const SearchBar = props => {
   return (
-    <form id='searchBar' className='searchBar' onSubmit={props.onSubmit}>
+    <form id='searchBar' className='searchBar' onSubmit={props.onSubmit} autoComplete="off">
       <label className='sr-only' htmlFor='actor1'>
         Enter First Actor's Name
       </label>

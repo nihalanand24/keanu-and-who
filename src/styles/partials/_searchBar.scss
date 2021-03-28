@@ -1,3 +1,9 @@
+@for $i from 2 through 1{
+  .searchBoxContainer {
+    z-index: $i;
+  }
+}
+
 .searchBar {
   font-size: 1.3rem;
   text-align: center;
@@ -22,6 +28,7 @@
     left: 10px;
     right: 5px;
     padding: 0;
+    
 
     li {
       width: 100%;

@@ -11,6 +11,7 @@ const MoviesGallery = ({ moviesArray, actor1, actor2 }) => {
     setOpen(true);
     if(moviesArray[0] !== 'ERROR' && moviesArray[0] !== 'NO RESULT' && moviesArray.length){
       document.querySelector('header').style.marginTop = '0';
+      document.querySelector('.wrapper').style.minHeight = '94vh';
     }
   }, [moviesArray]);
 
