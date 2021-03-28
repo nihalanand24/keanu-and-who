@@ -2,7 +2,7 @@ html {
   min-height: 100vh;
 }
 body {
-  font-family: 'Ubuntu';
+  font-family: Ubuntu, sans-serif;
   font-weight: 400;
   color: #333;
 }
@@ -12,5 +12,5 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   padding-bottom: 50px;
-  min-height: calc(100vh - 2.4rem);
+  min-height: 74vh;
 }

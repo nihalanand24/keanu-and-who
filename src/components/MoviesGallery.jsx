@@ -9,7 +9,11 @@ const MoviesGallery = ({ moviesArray, actor1, actor2 }) => {
 
   useEffect(() => {
     setOpen(true);
+    if(moviesArray[0] !== 'ERROR' && moviesArray[0] !== 'NO RESULT' && moviesArray.length){
+      document.querySelector('header').style.marginTop = '0';
+    }
   }, [moviesArray]);
+
 
   return !moviesArray.length ? (
     <div className='moviesGallery'>

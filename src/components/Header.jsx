@@ -2,7 +2,7 @@ const Header = () => {
 
   return (
     <header>
-      <h1>Keanu and Who?</h1>
+      <a href="/"><h1>Keanu and Who?</h1></a>
     </header>
   );
 };
