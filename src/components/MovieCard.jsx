@@ -11,7 +11,7 @@ const MovieCard = (props) => {
   return (
     <>
       {props.releaseYear && (
-        <div className='movieCard' onClick={() => setOpen(true)}>
+        <button className='movieCard' onClick={() => setOpen(true)}>
           <h3>{props.movieTitle}</h3>
           <p>({props.releaseYear})</p>
           {props.poster ? (
@@ -22,7 +22,7 @@ const MovieCard = (props) => {
           ) : (
             <NoPoster />
           )}
-        </div>
+        </button>
       )}
       <Modal
         key={props.imdb}

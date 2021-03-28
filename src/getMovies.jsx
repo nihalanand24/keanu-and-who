@@ -1,7 +1,6 @@
-const baseUrl = 'https://api.themoviedb.org/3';
-const apiKey = '0f71218e40b140c550833011fa9c4afb';
 
-export default function getMovies(actor1Name, actor2Name, setDataFromApi) {
+
+export default function getMovies(actor1Name, actor2Name, setDataFromApi, baseUrl, apiKey) {
   const getActorIDs = async (actor1, actor2) => {
     const url = new URL(`${baseUrl}/search/person`);
     url.search = new URLSearchParams({

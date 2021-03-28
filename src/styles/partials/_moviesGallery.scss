@@ -18,10 +18,13 @@
     cursor: pointer;
     animation: fadein 0.5s;
     box-shadow: 0 0 #333;
+    background-color: white;
 
-    &:hover {
+    &:hover,
+    &:focus {
       box-shadow: -5px 5px #333;
       transform: translate(5px, -5px);
+      outline: none;
     }
 
     &:active {
