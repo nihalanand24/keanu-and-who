@@ -13,6 +13,13 @@ const Suggestion = ({ actor, focus, index, setFocus, setName, propID }) => {
     setFocus(index);
   }, [index, setFocus]);
 
+  const handleTab = (e) => {
+    if(e.key === 'Tab') {
+      e.preventDefault();
+      handleClick(e.target.textContent);
+    }
+  }
+
   const handleClick = (name) => {
     setName(name); 
     document.getElementById(propID).style.display = "none";
@@ -36,7 +43,8 @@ const Suggestion = ({ actor, focus, index, setFocus, setName, propID }) => {
         ref={ref}
         onClick={() => handleClick(actor)}
         onMouseOver={handleSelect}
-        onKeyPress={handleSelect}>
+        onKeyPress={handleSelect}
+        onKeyDown={handleTab}>
         {actor}
       </button>
     </li>
