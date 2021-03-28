@@ -14,8 +14,18 @@ const Suggestion = ({ actor, focus, index, setFocus, setName, propID }) => {
   }, [index, setFocus]);
 
   const handleClick = (name) => {
+    setName(name); 
     document.getElementById(propID).style.display = "none";
-    setName(name);
+    const actor1 = document.getElementById('actor1');
+    const actor2 = document.getElementById('actor2');
+    const submitButton = document.querySelector('button[type=submit');
+    if(propID === 'ac1' && !actor2.value.length){
+      actor2.focus();
+    } else if (propID === 'ac2' && !actor1.value.length){
+      actor1.focus();
+    } else {
+      submitButton.focus();
+    }
   };
   return (
     <li>

@@ -28,6 +28,8 @@ const [focus2, setFocus2] = useRovingFocus(size2, 'actor2');
     getMovies(search1, search2, setDataFromApi, baseUrl, apiKey);
   };
 
+  
+
   return (
     <>
       <div className='wrapper'>
