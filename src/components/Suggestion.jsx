@@ -20,10 +20,12 @@ const Suggestion = ({ actor, focus, index, setFocus, setName, propID }) => {
   return (
     <li>
       <button
+      type='button'
       className='suggestion'
         tabIndex={focus ? 0 : -1}
         ref={ref}
         onClick={() => handleClick(actor)}
+        onMouseOver={handleSelect}
         onKeyPress={handleSelect}>
         {actor}
       </button>
