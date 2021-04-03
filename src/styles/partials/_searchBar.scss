@@ -56,10 +56,10 @@
         &:hover,
         &:focus {
           transform: none;
+          background-color: #ddd;
         }
         
         &:focus {
-          background-color: #ddd;
           outline: none;
         }
       }

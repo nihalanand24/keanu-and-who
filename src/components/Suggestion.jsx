@@ -42,7 +42,6 @@ const Suggestion = ({ actor, focus, index, setFocus, setName, propID }) => {
         tabIndex={focus ? 0 : -1}
         ref={ref}
         onClick={() => handleClick(actor)}
-        onMouseOver={handleSelect}
         onKeyPress={handleSelect}
         onKeyDown={handleTab}>
         {actor}
